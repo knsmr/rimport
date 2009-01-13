@@ -4,23 +4,24 @@ require "fileutils"
 require "optparse"
 
 =begin
-= 写真取り込みスクリプト
-(1) 指定ディレクトリ以下のRAWとJPEGファイルをflistに
-(2) タイムスタンプ逆順にソートしてslistに
-(3) slistの隣同士を見て一定時間以内の撮影なら同一イベントとみなして同一IDを割り当てる
-(4) ID判別で直近イベントと思われる写真のリストをCamera.latestで返す
-(5) ID判別でn回前のイベントと思われる写真のリストをCamera.event(n)で返す
+= Photo import script
+(1) flist: filenames of RAWs and JPEGs under a given directory
+(2) slit: sorted photo filenames by time, descending order. 
+(3) compare the adjacent photos, if the time difference is under a
+given duration, give those the same ID.
+(4) Camera.latest: The list of photos that are in the most recent event group. 
+(5) Camera.event(n): The list of photos in the Nth former event. 
 
-* デフォルトでは直近から5回前までのイベントの写真枚数と時間を表示
-* -cオプションでカレントディレクトリに取り込み
-* -mオプションでカレントディレクトリに取り込んで、オリジナルは削除
+* by default, it displays the number of photos for the 5 recent events. 
+* -c: copy photos to the current directory. 
+* -m: move photos to the current directory. 
 
-= 今後やりたい
 =end
 
 # PHOTO_DIR = "/media/disk/DCIM/" 
 PHOTO_DIR = "/home/ken/desktop/"
-HOURS = 1.0  # 同一イベントの撮影とみなすシャッター間隔
+HOURS = 1.0  # time duration for with a pair of photos are considered
+             # to be taken at the same event
 
 # default options
 Options = {
