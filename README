@@ -1,8 +1,13 @@
+======
+README
+======
 
-
-A tiny Ruby script with which you can import photos from any directories(USB drives/camera) specifying a group/groups of photos taken at the same event. Events are distinguished by the time stamp, and you can provide time duration of a given event. 
+A tiny Ruby script with which you can import photos from any
+directories(USB drives/camera) specifying a group/groups of
+photos taken at the same event. Events are distinguished by
+the time stamp, and you can provide time duration of a given
+event.
 
 Run the script with -h option to see help.
 
 Ken Nishimura, Tokyo
-
