@@ -18,8 +18,7 @@ given duration, give those the same ID.
 
 =end
 
-# PHOTO_DIR = "/media/disk/DCIM/" 
-PHOTO_DIR = "/home/ken/desktop/"
+PHOTO_DIR = "/media/disk/DCIM/" 
 HOURS = 1.0  # time duration for with a pair of photos are considered
              # to be taken at the same event
 
